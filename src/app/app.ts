@@ -8,5 +8,21 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('angular-myFirstProject');
+  title = 'Learning Angular'
+
+  user = {
+    name: 'Artem',
+    age: '27'
+  }
+
+  tooltip = 'Href to smth';
+
+  inlineStyles = {
+    width: '50%',
+    background: 'green',
+  }
+
+  cssClass = 'blue';
+
+  fifty = '50';
 }
