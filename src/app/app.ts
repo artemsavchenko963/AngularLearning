@@ -1,14 +1,15 @@
+import { CommonModule, UpperCasePipe } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, CommonModule], // CommonModule to import all standard pipes.
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-  title = 'Learning Angular'
+  title = 'Learning Angular';
 
   user = {
     name: 'Artem',
@@ -25,4 +26,6 @@ export class App {
   cssClass = 'blue';
 
   fifty = '50';
+
+  someDate = new Date();
 }

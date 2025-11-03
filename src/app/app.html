@@ -1,22 +1,9 @@
-<h1>Title {{title}}</h1>
-<div>
-  <p>{{user.name}}</p>
-  <p>{{user.age}}</p>
-</div>
-
-<a href="#" [title]="tooltip">Href</a><br>
-<a href="#" bind-title="tooltip">Href 2</a>
-
-<p style="color: red;">Red color</p>
+<h1> {{ title | uppercase }}</h1>
+<h1> {{ title | lowercase }}</h1>
+<p>{{ user | json}}</p>
+<p>{{ title | slice: 0 : 8}}</p>
+<p>{{ someDate }}</p>
+<p>{{ someDate | date }}</p>
 
 
-<p [class]="cssClass">Red color</p>
-<p [style]="inlineStyles">Red color</p>
-
-
-<p [style.width]="'50%'">Red color</p>
-<!-- =================================== -->
-<p [style.width.%]="fifty">
-  50% wwwwwwwwwwwwwwww 50%
-</p>
 
