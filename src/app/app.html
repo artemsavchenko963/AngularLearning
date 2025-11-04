@@ -1,6 +1,7 @@
-<p>{{ageOfUsers | sortData: 'age' | json}}</p>
+<button [style.color]="color" (click)="this.color = 'yellow'">Button</button>
+<p [style.color]="color" (click)="this.color = 'yellow'"></p>
 
-
+<input type="text" (input)='checkCurrentValue($event)' (keydown.shift)="this.color = 'pink'">
 
 
 
