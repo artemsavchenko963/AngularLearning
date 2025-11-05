@@ -1,20 +1,26 @@
-import { CommonModule, JsonPipe, UpperCasePipe } from '@angular/common';
-import { ChangeDetectorRef, Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CutTextPipe } from './pipes/cut-text-pipe';
-import { SortDataPipe } from './pipes/sort-data-pipe';
+import { Child } from './components/child/child';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, Child],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-  color = 'green';
+color = 'green';
+parentName: string = 'Hello!';
+
   checkCurrentValue(event: Event) {
     const target = event.target as HTMLInputElement;
     console.log('e', target.value);
   }
+
+  setNewName(newName: string) {
+    this.parentName = newName;
+  }
 }
+
