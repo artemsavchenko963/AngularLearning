@@ -1,8 +1,12 @@
-<h2 [style.color]="childColor">{{ name }}</h2>
-
-<button (click)="changeName()">Change name</button>
-
-
-<p>Child component name: {{ name }}</p>
-
-<button (click)="changeName()">Child button</button>
+<header>Child header
+    <ng-content select="[someAtribute]"></ng-content>
+</header>
+<hr>
+<main>
+    <p>Place...</p>
+    <ng-content select=".some-css-class"></ng-content>
+</main>
+<hr>
+<footer>Child footer
+    <ng-content select="p"></ng-content>
+</footer>

@@ -1,14 +1,20 @@
-<!-- <button [style.color]="color" (click)="this.color = 'yellow'">Button</button>
-<p [style.color]="color" (click)="this.color = 'yellow'"></p>
-
-<input type="text" (input)='checkCurrentValue($event)' (keydown.shift)="this.color = 'pink'"> -->
-
-<!-- <app-child [childColor]="color" [name]="name" (nameChange)="setNewName($event)"></app-child> -->
-<app-child [childColor]="color" [(name)]="parentName"></app-child>
-
-<p>Parent component name: {{ parentName }}</p>
-
-<button (click)="setNewName('name changet thanks parent')">Parent button</button>
+<app-child>
+    <hr>
+    <p 
+        style="background-color: rgb(0, 165, 8);">
+        Hello, World!
+    </p>
+    <div
+        style="background-color: blue;"
+        someAtribute>Hello, World!
+    </div>
+    <article 
+        style="background-color: rgba(128, 128, 128, 0.341);"
+        class="some-css-class">
+        Hello, World!
+    </article>
+    <hr>
+</app-child>
 
 
 
