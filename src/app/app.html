@@ -1,4 +1,4 @@
-<app-child>
+<!-- <app-child>
     <hr>
     <p 
         style="background-color: rgb(0, 165, 8);">
@@ -14,11 +14,22 @@
         Hello, World!
     </article>
     <hr>
-</app-child>
+</app-child> -->
 
+<p>Firs paragraph</p>
+<ng-container *ngTemplateOutlet="test; context: {first: 'hello' , $implicit: 'world', someText: '!!!'}">
+    <span>
+        Learning Angular
+    </span>
+</ng-container>
+<p>Third paragraph</p>
 
-
-
+<ng-template #test let-item let-firstItem="first" let-someText="someText">
+    <p>Second paragraph</p>
+    <p>{{ firstItem }}</p>
+    <p>{{ item }}</p>
+    <p>{{ someText }}</p>
+</ng-template>
 
 
 
