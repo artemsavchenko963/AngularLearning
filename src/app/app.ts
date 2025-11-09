@@ -11,7 +11,10 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.scss'
 })
 export class App {
-color = 'blue';
+color = 'grey';
+
+
+cssStyle = {color: 'black', background: 'white'};
 
 }
 

@@ -1,4 +1,22 @@
-<p [ngClass]="['blue', 'green']">
+<!-- <p [ngClass]="['blue', 'green']">
+    Lorem ipsum dolor sit,
+    amet consectetur adipisicing elit. Aliquid voluptas ipsam ut
+    nostrum laboriosam est assumenda obcaecati esse, veritatis consequuntur,
+    quia nemo quis modi aut tempora fugiat provident architecto molestias.
+</p> -->
+<p [ngStyle]="{color, background1: 'red'}">
+    Lorem ipsum dolor sit,
+    amet consectetur adipisicing elit. Aliquid voluptas ipsam ut
+    nostrum laboriosam est assumenda obcaecati esse, veritatis consequuntur,
+    quia nemo quis modi aut tempora fugiat provident architecto molestias.
+</p>
+<p [ngStyle]="cssStyle">
+    Lorem ipsum dolor sit,
+    amet consectetur adipisicing elit. Aliquid voluptas ipsam ut
+    nostrum laboriosam est assumenda obcaecati esse, veritatis consequuntur,
+    quia nemo quis modi aut tempora fugiat provident architecto molestias.
+</p>
+<p [ngStyle]="{ 'font-size.px': 40} ">
     Lorem ipsum dolor sit,
     amet consectetur adipisicing elit. Aliquid voluptas ipsam ut
     nostrum laboriosam est assumenda obcaecati esse, veritatis consequuntur,
