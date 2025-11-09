@@ -1,29 +1,29 @@
-<!-- <p [ngClass]="['blue', 'green']">
-    Lorem ipsum dolor sit,
-    amet consectetur adipisicing elit. Aliquid voluptas ipsam ut
-    nostrum laboriosam est assumenda obcaecati esse, veritatis consequuntur,
-    quia nemo quis modi aut tempora fugiat provident architecto molestias.
-</p> -->
-<p [ngStyle]="{color, background1: 'red'}">
-    Lorem ipsum dolor sit,
-    amet consectetur adipisicing elit. Aliquid voluptas ipsam ut
-    nostrum laboriosam est assumenda obcaecati esse, veritatis consequuntur,
-    quia nemo quis modi aut tempora fugiat provident architecto molestias.
-</p>
-<p [ngStyle]="cssStyle">
-    Lorem ipsum dolor sit,
-    amet consectetur adipisicing elit. Aliquid voluptas ipsam ut
-    nostrum laboriosam est assumenda obcaecati esse, veritatis consequuntur,
-    quia nemo quis modi aut tempora fugiat provident architecto molestias.
-</p>
-<p [ngStyle]="{ 'font-size.px': 40} ">
-    Lorem ipsum dolor sit,
-    amet consectetur adipisicing elit. Aliquid voluptas ipsam ut
-    nostrum laboriosam est assumenda obcaecati esse, veritatis consequuntur,
-    quia nemo quis modi aut tempora fugiat provident architecto molestias.
-</p>
+<!-- @for (item of arr; track someTrackByMethod($index, item)) {
+    <span>{{ item }}</span><br>
+}
+<hr />
 
+@for (item of arr; track item; let index = $index) {
+    <span>{{ index }}</span><br>
+} @empty {
+    <p [ngClass]="['red']">Empty...</p><hr>
+} -->
 
+<!-- switch -->
+
+@for (item of arr; track $index) {
+    @switch (item) {
+        @case (123) {
+            <i>{{item}}</i><br>
+        }
+        @case (true) {
+            <i>{{item}}</i><br>
+        }
+        @default {
+            <span>{{item}}</span><br>
+        }
+    }
+}
 
 
 
