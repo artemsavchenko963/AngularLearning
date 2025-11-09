@@ -12,15 +12,27 @@ import { CommonModule } from '@angular/common';
 })
 export class App {
 color = 'green';
-parentName: string = 'Hello!';
+toggler: boolean = true;
+str: string = '';
 
-  checkCurrentValue(event: Event) {
-    const target = event.target as HTMLInputElement;
-    console.log('e', target.value);
-  }
+arr: any[] = ['text', 123, true, [1, 'abc'], NaN, Symbol];
 
-  setNewName(newName: string) {
-    this.parentName = newName;
+  obj: any = {
+    first: {
+      second: {
+        third: {
+          age: 11,
+          name: 'Mike',
+        },
+      },
+    },
+  };
+
+  someTrackByMethod(index: number, item: any) {
+    console.log(1);
+
+    return item;
   }
 }
+
 

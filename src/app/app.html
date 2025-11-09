@@ -1,36 +1,44 @@
-<!-- <app-child>
-    <hr>
-    <p 
-        style="background-color: rgb(0, 165, 8);">
-        Hello, World!
+<!-- 1 -->
+
+<button (click)="toggler = !toggler">Button</button>
+
+<ng-template [ngIf]="toggler" [ngIfThen]="test" [ngIfElse]="second">
+    <p>
+        learning Angular
     </p>
-    <div
-        style="background-color: blue;"
-        someAtribute>Hello, World!
-    </div>
-    <article 
-        style="background-color: rgba(128, 128, 128, 0.341);"
-        class="some-css-class">
-        Hello, World!
-    </article>
-    <hr>
-</app-child> -->
-
-<p>Firs paragraph</p>
-<ng-container *ngTemplateOutlet="test; context: {first: 'hello' , $implicit: 'world', someText: '!!!'}">
-    <span>
-        Learning Angular
-    </span>
-</ng-container>
-<p>Third paragraph</p>
-
-<ng-template #test let-item let-firstItem="first" let-someText="someText">
-    <p>Second paragraph</p>
-    <p>{{ firstItem }}</p>
-    <p>{{ item }}</p>
-    <p>{{ someText }}</p>
 </ng-template>
+<ng-template #test>
+    <p>
+        2
+    </p>
+</ng-template>
+<ng-template #second>
+    <p>
+        1
+    </p><br>
 
+<!-- 2 -->
+
+</ng-template>
+<ng-container *ngIf = "true">
+<div *ngFor="let item of arr">
+    <span>{{item}}</span>
+</div>
+</ng-container><br>
+
+<!-- 3 -->
+
+<ng-container *ngIf = "obj.first.second.third as info">
+    <p>Name: {{ info.name }}</p>
+    <p>Name: {{ info.name }}</p>
+</ng-container><br>
+
+<!-- 4 -->
+
+<div *ngFor="let item of arr; even as evenItem; index as currentIndex">
+  <span *ngIf="evenItem">{{ item }}</span>
+  <span style="color: orangered; margin-left: 20px">{{ currentIndex }}</span>
+</div><br>
 
 
 
