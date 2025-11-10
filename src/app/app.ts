@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Child } from './components/child/child';
 import { CommonModule } from '@angular/common';
@@ -11,27 +11,16 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.scss'
 })
 export class App {
-color = 'green';
-toggler: boolean = true;
-str: string = '';
+  title: string = 'title!@#';
+  name: string = 'Имя';
+  toggler: boolean = true;
+  obj = { age: 12 };
 
-arr: any[] = ['text', 123, true, [1, 'abc'], NaN, Symbol];
-
-  obj: any = {
-    first: {
-      second: {
-        third: {
-          age: 11,
-          name: 'Mike',
-        },
-      },
-    },
-  };
-
-  someTrackByMethod(index: number, item: any) {
-    console.log(1);
-
-    return item;
+  constructor(private cdr: ChangeDetectorRef) {
+    setTimeout(() => {
+      this.title = "another title";
+      this.cdr.detectChanges(); 
+    }, 3000);
   }
 }
 
