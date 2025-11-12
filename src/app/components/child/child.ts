@@ -1,50 +1,26 @@
-import { Component, input, Input, Output, SimpleChange } from '@angular/core';
+import { Component, ContentChild, ElementRef, input, Input, Output, SimpleChange, TemplateRef } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { NgContentExample } from '../../component/ng-content-example/ng-content-example';
 
 @Component({
   selector: 'app-child',
   templateUrl: './child.html',
   styleUrl: './child.scss',
+  imports: [NgContentExample],
 })
 export class Child {
-  title: string = 'chaild title';  
-  name: string = 'chaild name';  
-  
-  
-  // ngOnChanges(changes: SimpleChange): void {
-  //   console.log('%c ngOnChanges', 'color: aqua');
-  //   // console.log('changes', changes);
-  // }
+  // @ContentChild('selector') propertyName: dataType;
+  @ContentChild('tag') paragraph!: ElementRef<HTMLParagraphElement>;
+  @ContentChild(TemplateRef) template!: TemplateRef<HTMLParagraphElement>;
+  // @ContentChild('descendants', { descendants: true }) component!: NgContentExample;
+  @ContentChild(NgContentExample) allChildren!: NgContentExample;
 
-  // ngOnInit(): void {
-  //   console.log('%c ngOnInit', 'color: deepskyblue');
-  // }
+  ngAfterContentInit() {
+    this.paragraph && console.log('paragraph', this.paragraph);
+    this.template && console.log('template', this.template);
+    this.component && console.log('component', this.component);
 
-  // ngDoCheck(): void {
-  //   console.log('%c ngDoCheck', 'color: pink');
-  // }
+    this.component?.getClassName();
+  }
 
-  // ngAfterContentInit(): void {
-  //   console.log('%c ngAfterContentInit', 'color: lightgreen');
-  // }
-
-  // ngAfterContentChecked(): void {
-  //   console.log('%c ngAfterContentChecked', 'color: green');
-  // }
-
-  // ngAfterViewInit(): void {
-  //   console.log('%c ngAfterViewInit', 'color: yellow');
-  //   // this.title = '123';
-  //   setTimeout(() => {
-  //     this.title = '123';
-  //   }, 0);
-  // }
-
-  // ngAfterViewChecked(): void {
-  //   console.log('%c ngAfterViewChecked', 'color: orange');
-  // }
-
-  // ngOnDestroy(): void {
-  //   console.log('%c ngOnDestroy', 'color: red');
-  // }
 }

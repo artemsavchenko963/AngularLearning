@@ -1,12 +1,21 @@
-<p #paragraph>Paragraph</p>
-
-<ng-template #template>
-    <p>Inside the template</p>
-</ng-template>
-<ng-container *ngTemplateOutlet="template"></ng-container>
-
-<app-child #paragraph>Lorem ipsum dolor sit amet</app-child>
-
-
+<app-child> Обычный текст </app-child>
+<!-- ===================================== -->
+<app-child>
+  <p #tag>Параграф</p>
+</app-child>
+<!-- ===================================== -->
+<app-child>
+  <ng-template>
+    <p>Элемент ng-template</p>
+  </ng-template>
+</app-child>
+<!-- ===================================== -->
+<app-child>
+  <app-ng-content-example>
+    <app-ng-content-example #descendants>
+        Компонент ng-content-example
+    </app-ng-content-example>
+  </app-ng-content-example>
+</app-child>
 
 
