@@ -7,51 +7,44 @@ import { EventEmitter } from '@angular/core';
   styleUrl: './child.scss',
 })
 export class Child {
-@Input() title!: string;
-@Input() name!: string;
-
-  constructor() {
-    console.log(
-      '%c Component app-child created !',
-      'background: darkgreen'
-
-    )
-  }
+  title: string = 'chaild title';  
+  name: string = 'chaild name';  
   
-  ngOnChanges(changes: SimpleChange): void {
-    console.log('%c ngOnChanges', 'color: aqua');
-    // console.log('changes', changes);
-  }
+  
+  // ngOnChanges(changes: SimpleChange): void {
+  //   console.log('%c ngOnChanges', 'color: aqua');
+  //   // console.log('changes', changes);
+  // }
 
-  ngOnInit(): void {
-    console.log('%c ngOnInit', 'color: deepskyblue');
-  }
+  // ngOnInit(): void {
+  //   console.log('%c ngOnInit', 'color: deepskyblue');
+  // }
 
-  ngDoCheck(): void {
-    console.log('%c ngDoCheck', 'color: pink');
-  }
+  // ngDoCheck(): void {
+  //   console.log('%c ngDoCheck', 'color: pink');
+  // }
 
-  ngAfterContentInit(): void {
-    console.log('%c ngAfterContentInit', 'color: lightgreen');
-  }
+  // ngAfterContentInit(): void {
+  //   console.log('%c ngAfterContentInit', 'color: lightgreen');
+  // }
 
-  ngAfterContentChecked(): void {
-    console.log('%c ngAfterContentChecked', 'color: green');
-  }
+  // ngAfterContentChecked(): void {
+  //   console.log('%c ngAfterContentChecked', 'color: green');
+  // }
 
-  ngAfterViewInit(): void {
-    console.log('%c ngAfterViewInit', 'color: yellow');
-    // this.title = '123';
-    setTimeout(() => {
-      this.title = '123';
-    }, 0);
-  }
+  // ngAfterViewInit(): void {
+  //   console.log('%c ngAfterViewInit', 'color: yellow');
+  //   // this.title = '123';
+  //   setTimeout(() => {
+  //     this.title = '123';
+  //   }, 0);
+  // }
 
-  ngAfterViewChecked(): void {
-    console.log('%c ngAfterViewChecked', 'color: orange');
-  }
+  // ngAfterViewChecked(): void {
+  //   console.log('%c ngAfterViewChecked', 'color: orange');
+  // }
 
-  ngOnDestroy(): void {
-    console.log('%c ngOnDestroy', 'color: red');
-  }
+  // ngOnDestroy(): void {
+  //   console.log('%c ngOnDestroy', 'color: red');
+  // }
 }

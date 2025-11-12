@@ -1,6 +1,12 @@
-@if (toggler) {
-    <app-child [title]="title" [name]="name"></app-child>
-}
+<p #paragraph>Paragraph</p>
+
+<ng-template #template>
+    <p>Inside the template</p>
+</ng-template>
+<ng-container *ngTemplateOutlet="template"></ng-container>
+
+<app-child #paragraph>Lorem ipsum dolor sit amet</app-child>
 
 
-<button (click)="toggler = !toggler">Toggle</button>
+
+
