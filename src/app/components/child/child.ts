@@ -10,17 +10,15 @@ import { NgContentExample } from '../../component/ng-content-example/ng-content-
 })
 export class Child {
   // @ContentChild('selector') propertyName: dataType;
-  @ContentChild('tag') paragraph!: ElementRef<HTMLParagraphElement>;
-  @ContentChild(TemplateRef) template!: TemplateRef<HTMLParagraphElement>;
+  // @ContentChild('tag') paragraph!: ElementRef<HTMLParagraphElement>;
+  // @ContentChild(TemplateRef) template!: TemplateRef<HTMLParagraphElement>;
   // @ContentChild('descendants', { descendants: true }) component!: NgContentExample;
-  @ContentChild(NgContentExample) allChildren!: NgContentExample;
+  
+  // ngAfterContentInit() {
+  //   this.paragraph && console.log('paragraph', this.paragraph);
+  //   this.template && console.log('template', this.template);
+  //   this.component && console.log('component', this.component);
 
-  ngAfterContentInit() {
-    this.paragraph && console.log('paragraph', this.paragraph);
-    this.template && console.log('template', this.template);
-    this.component && console.log('component', this.component);
-
-    this.component?.getClassName();
+  //   this.component?.getClassName();
+  
   }
-
-}

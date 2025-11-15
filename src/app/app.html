@@ -1,21 +1,7 @@
-<app-child> Обычный текст </app-child>
-<!-- ===================================== -->
-<app-child>
-  <p #tag>Параграф</p>
-</app-child>
-<!-- ===================================== -->
-<app-child>
-  <ng-template>
-    <p>Элемент ng-template</p>
-  </ng-template>
-</app-child>
-<!-- ===================================== -->
-<app-child>
-  <app-ng-content-example>
-    <app-ng-content-example #descendants>
-        Компонент ng-content-example
-    </app-ng-content-example>
-  </app-ng-content-example>
-</app-child>
+<p>Paragraph without directive</p>
+<p appCustomDirective style="color: lime"
+[color]="colorProperty" class="color">Paragraph with directive</p>
+<!-- <p appCustomDirective>Paragraph with directive</p> -->
+
 
 
