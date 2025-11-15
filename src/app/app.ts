@@ -15,8 +15,8 @@ from
   styleUrl: './app.scss',
 })
 export class App {
-  colorProperty: string = 'orange';
-
+  colorProperty: string = 'transparent';
+  
   setColor(newColor: string) {
     this.colorProperty = newColor
   }

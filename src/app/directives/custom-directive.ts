@@ -3,7 +3,8 @@ import { EventEmitter } from '@angular/core';
 
 @Directive({
   selector: '[appCustomDirective]',
-  standalone: true
+  standalone: true,
+  exportAs: 'custom',
 })
 export class CustomDirective {
     @Input('color') colorProps!: string;
@@ -43,17 +44,18 @@ export class CustomDirective {
   // @HostListener('mouseleave') handleMouseLeave() {
   //       this.bgColor = 'transparent';
 
-  @HostListener('click') handleMouseLeave() {
+  @HostListener('click') handleClick() {
         this.getRandomColor();
 
   }
-  ngOnChanges() {
-    console.log('colorProps', this.colorProps)
-
-    this.bgColor = this.appCustomDirectiveProps;
+  ngAfterViewInit() {
+    setTimeout(() => {
+      console.log('colorProps', this.colorProps)
+      console.log('appCustomDirectiveProps', this.appCustomDirectiveProps);
+      this.bgColor = this.appCustomDirectiveProps;
+  }, 10);
+    
   }
-
-  
 
   getRandomColor() {
     const newColor =
@@ -61,5 +63,6 @@ export class CustomDirective {
       (Math.random().toString(16) + '000000').substring(2, 8).toUpperCase();
 
     this.colorChange.emit(newColor);
+    return newColor;
   }
 }
