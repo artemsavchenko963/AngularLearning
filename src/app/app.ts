@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CustomDirective } from './directives/custom-directive';
 import { RouterOutlet } from '@angular/router';
 import { Child } from './components/child/child';
@@ -16,6 +16,10 @@ from
 })
 export class App {
   colorProperty: string = 'orange';
+
+  setColor(newColor: string) {
+    this.colorProperty = newColor
+  }
 }
 
 

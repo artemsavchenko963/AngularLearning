@@ -1,6 +1,6 @@
 <p>Paragraph without directive</p>
-<p appCustomDirective style="color: lime"
-[color]="colorProperty" class="color">Paragraph with directive</p>
+<!-- <p appCustomDirective style="color: lime" [color]="colorProperty" class="color">Paragraph with directive</p> -->
+<p [appCustomDirective]="colorProperty" (colorChange)="setColor($event)">Paragraph with directive</p>
 <!-- <p appCustomDirective>Paragraph with directive</p> -->
 
 
