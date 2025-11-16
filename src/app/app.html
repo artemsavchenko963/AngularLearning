@@ -1,5 +1,6 @@
 <p>#21</p>
-<button (click) = "toggler = !toggler">Button</button>
+<button (click) = "showComponent()">Button</button>
+<ng-container #example></ng-container>
 <p>Paragraph without directive</p>
 <p *appCustomDirective = "toggler; let time = time; hello: 'World'">
     Paragraph with directive
