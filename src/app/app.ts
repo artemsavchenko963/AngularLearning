@@ -26,6 +26,11 @@ showComponent() {
   this.viewContainer.createComponent(Dynamic)
 } 
 
+async asyncShowComponent() {
+  const { Dynamic } = await import('./component/dynamic/dynamic');
+  this.viewContainer.createComponent(Dynamic)
+} 
+
 @ViewChild('example', {read: ViewContainerRef}) container!: ViewContainerRef;
 ngAfterViewInit() {
   const newComponent = this.container.createComponent(Dynamic)
