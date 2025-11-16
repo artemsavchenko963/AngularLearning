@@ -1,14 +1,10 @@
+@import url(./Styles/colors.scss);
+@import url(./Styles/themes.scss);
 body {
     background-color: black;
     color: white;
 }
-.green {
-    color: rgb(0, 151, 0);
-}
 
-.blue {
-    color: blue;
-}
-.red {
-    color: rgb(157, 3, 0);
+* {
+    color: white;
 }

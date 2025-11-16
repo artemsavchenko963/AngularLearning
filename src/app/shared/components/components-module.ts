@@ -7,12 +7,11 @@ import { Blue } from './blue/blue';
 
 
 @NgModule({
-  declarations: [
-    Green 
+  declarations: [ 
   ],
   imports: [
     CommonModule
   ],
-  exports: [ Green ]
+  exports: []
 })
 export class ComponentsModule { }
