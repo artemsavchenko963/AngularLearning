@@ -15,11 +15,7 @@ from
   styleUrl: './app.scss',
 })
 export class App {
-  colorProperty: string = 'transparent';
-  
-  setColor(newColor: string) {
-    this.colorProperty = newColor
-  }
+ toggler: boolean = true;
 }
 
 

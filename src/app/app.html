@@ -1,10 +1,11 @@
+<p>#21</p>
+<button (click) = "toggler = !toggler">Button</button>
 <p>Paragraph without directive</p>
-<!-- <p appCustomDirective style="color: lime" [color]="colorProperty" class="color">Paragraph with directive</p> -->
-<p [appCustomDirective]="colorProperty"
- #example="custom"
- (colorChange)="setColor($event)">Paragraph with directive</p>
-<!-- <p appCustomDirective>Paragraph with directive</p> -->
+<p *appCustomDirective = "toggler; let time = time; hello: 'World'">
+    Paragraph with directive
+    {{time | date: 'hh:mm:ss'}}
+</p>
 
 
 
-<app-child [style]="{color: example.getRandomColor()}"></app-child>
+
