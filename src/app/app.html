@@ -1,13 +1,4 @@
 <p>#23</p>
-<button (click) = "showComponent()">Button</button><br>
-<button (click) = "asyncShowComponent()">Button Async</button>
-<ng-container #example></ng-container>
-<p>Paragraph without directive</p>
-<p *appCustomDirective = "toggler; let time = time; hello: 'World'">
-    Paragraph with directive
-    {{time | date: 'hh:mm:ss'}}
-</p>
 
-
-
+<app-first></app-first>
 

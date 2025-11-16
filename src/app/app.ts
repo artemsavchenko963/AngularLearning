@@ -7,40 +7,20 @@ import { NgContentExample }
 from 
 './component/ng-content-example/ng-content-example';
 import { Dynamic } from './component/dynamic/dynamic';
+import { FirstModule } from './modules/first/first-module';
+import { SecondModule } from './modules/second/second-module';
+import { ComponentsModule } from "./shared/components/components-module";
+import { Red } from "./shared/components/red/red";
+import { Blue } from './shared/components/blue/blue';
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, Child, CommonModule,
-  NgContentExample, CustomDirective, Dynamic],
+    NgContentExample, CustomDirective, Dynamic, FirstModule, SecondModule, ComponentsModule, Red],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
 export class App {
- toggler: boolean = true;
-
- constructor(private viewContainer: ViewContainerRef) {
-
- }
-
-showComponent() {
-  this.viewContainer.createComponent(Dynamic)
-} 
-
-async asyncShowComponent() {
-  const { Dynamic } = await import('./component/dynamic/dynamic');
-  this.viewContainer.createComponent(Dynamic)
-} 
-
-@ViewChild('example', {read: ViewContainerRef}) container!: ViewContainerRef;
-ngAfterViewInit() {
-  const newComponent = this.container.createComponent(Dynamic)
-  // newComponent.instance.name = 'new name';
-  // newComponent.instance.callName();
-
-  newComponent.setInput('name', 'new name');
-  const someData = newComponent.instance.callName();
-  console.log('someData', someData);
-}
 
 }
 
