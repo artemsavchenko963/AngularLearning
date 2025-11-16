@@ -5,6 +5,7 @@ import { ComponentsModule } from '../../shared/components/components-module';
 import { Red } from '../../shared/components/red/red';
 import { SecondModule } from '../second/second-module';
 import { Blue } from '../../shared/components/blue/blue';
+import { Green } from '../../shared/components/green/green';
 
 
 
@@ -12,7 +13,7 @@ import { Blue } from '../../shared/components/blue/blue';
   declarations: [
     First
   ],
-  imports: [CommonModule, Blue],
+  imports: [CommonModule, Green],
   exports: [First]
 })
 export class FirstModule { }

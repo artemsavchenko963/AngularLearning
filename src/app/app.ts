@@ -19,10 +19,11 @@ import { Green } from "./shared/components/green/green";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FirstModule, Green],
+  standalone: true,
+  imports: [RouterOutlet, FirstModule, Green, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.scss',
-  encapsulation: ViewEncapsulation.ShadowDom   // Emulated - app.html   // ShadowDom - both   // None - any
+  encapsulation: ViewEncapsulation.ShadowDom  // Emulated - app.html   // ShadowDom - both   // None - any
 })
 export class App {
 

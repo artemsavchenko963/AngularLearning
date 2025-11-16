@@ -1,5 +1,4 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { Red } from '../red/red';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   templateUrl: './green.html',
   styleUrl: './green.scss',
-  imports: [Red, CommonModule],
+  // imports: [CommonModule],
 })
 export class Green {
 
