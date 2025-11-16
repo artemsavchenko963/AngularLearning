@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { Red } from '../red/red';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-blue',
   standalone: true,
   templateUrl: './blue.html',
   styleUrl: './blue.scss',
-  imports: [ CommonModule]
+  imports: [NgClass]
 })
 export class Blue {
 
