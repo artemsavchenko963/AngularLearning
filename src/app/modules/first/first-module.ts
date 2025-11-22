@@ -6,6 +6,7 @@ import { Red } from '../../shared/components/red/red';
 import { SecondModule } from '../second/second-module';
 import { Blue } from '../../shared/components/blue/blue';
 import { Green } from '../../shared/components/green/green';
+import { AppCustomDirective } from '../../directives/custom-directive';
 
 
 

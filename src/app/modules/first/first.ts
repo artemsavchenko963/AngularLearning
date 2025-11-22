@@ -5,6 +5,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
   standalone: false,
   templateUrl: './first.html',
   styleUrl: './first.scss',
+  encapsulation: ViewEncapsulation.None 
 })
 export class First {
 

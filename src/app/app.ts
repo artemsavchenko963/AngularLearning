@@ -1,6 +1,6 @@
 import { Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
-import { CustomDirective } from './directives/custom-directive';
+import { AppCustomDirective } from './directives/custom-directive';
 import { RouterOutlet } from '@angular/router';
 import { Child } from './components/child/child';
 import { CommonModule } from '@angular/common';
@@ -20,10 +20,9 @@ import { Green } from "./shared/components/green/green";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FirstModule, Green, CommonModule],
+  imports: [RouterOutlet, FirstModule, Green, CommonModule, AppCustomDirective],
   templateUrl: './app.html',
   styleUrl: './app.scss',
-  encapsulation: ViewEncapsulation.ShadowDom  // Emulated - app.html   // ShadowDom - both   // None - any
 })
 export class App {
 
