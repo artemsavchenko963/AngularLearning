@@ -1,0 +1,10 @@
+@if (exampleObserv | async; as data) {
+    <h1>previous value: {{data.previousValue}}</h1>
+    <h1>Current value: {{data.currentValue}}</h1>
+    <h1>next value: {{data.nextValue}}</h1>
+}
+
+<app-child [currentValue] = "(exampleObserv | async)?.currentValue"></app-child>
+
+
+<h1>{{ examplePromise | async }}</h1>

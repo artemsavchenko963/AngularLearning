@@ -9,16 +9,7 @@ import { NgContentExample } from '../../component/ng-content-example/ng-content-
   imports: [NgContentExample],
 })
 export class Child {
-  // @ContentChild('selector') propertyName: dataType;
-  // @ContentChild('tag') paragraph!: ElementRef<HTMLParagraphElement>;
-  // @ContentChild(TemplateRef) template!: TemplateRef<HTMLParagraphElement>;
-  // @ContentChild('descendants', { descendants: true }) component!: NgContentExample;
-  
-  // ngAfterContentInit() {
-  //   this.paragraph && console.log('paragraph', this.paragraph);
-  //   this.template && console.log('template', this.template);
-  //   this.component && console.log('component', this.component);
+@Input() currentValue!: number;
 
-  //   this.component?.getClassName();
   
   }
