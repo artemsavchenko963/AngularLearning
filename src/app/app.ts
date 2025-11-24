@@ -1,4 +1,4 @@
-import { Component, ViewChild, ViewContainerRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild, ViewContainerRef, signal } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
 import { AppCustomDirective } from './directives/custom-directive';
 import { RouterOutlet } from '@angular/router';
@@ -17,36 +17,36 @@ import { Green } from "./shared/components/green/green";
 import { filter, from, fromEvent, interval, map, Observable, of } from 'rxjs';
 import { prependListener } from 'node:process';
 
-
-
-
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, FirstModule, Green, CommonModule, AppCustomDirective, AsyncPipe, Child],
   templateUrl: './app.html',
   styleUrl: './app.scss',
+  // changeDetection: ChangeDetectionStrategy.Default,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class App {
-  exampleObserv!: Observable<any>;
-  examplePromise!: Promise<any>;
+  title: string = "hello world!";
+  interval = interval(1000);
+  signal = signal(0);
 
-  ngOnInit() {
-    // this.exampleObserv = interval(1000).pipe(map(value => value * 10));
-    this.exampleObserv = interval(1000).pipe(map((value) => 
-      ({
-        previousValue: value - 1,
-        currentValue: value,
-        nextValue: value + 2,
-      }))
-    );
+  ngDoCheck() {
+    console.log('ngDoCheck app-root');
+  }
 
-    this.examplePromise = new Promise((resolve) => {
-      setTimeout(() => {
-        resolve('promise complete')
-      }, 3000)
-    })
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit app-root');
+
+    setTimeout(() => {
+      this.title = 'Hello Artem!';
+      this.signal.set(1);
+    }, 3000);
+  }
+
+  handleClick() {
+    console.log('click')
   }
 }
 

@@ -1,10 +1,10 @@
-@if (exampleObserv | async; as data) {
-    <h1>previous value: {{data.previousValue}}</h1>
-    <h1>Current value: {{data.currentValue}}</h1>
-    <h1>next value: {{data.nextValue}}</h1>
-}
+<h1>{{title}}</h1>
+<!-- @if (interval | async; as number1) {
+    <app-child [number]="number1"></app-child>
+} -->
 
-<app-child [currentValue] = "(exampleObserv | async)?.currentValue"></app-child>
+<!-- <button (click)="handleClick()"></button> -->
 
+<!-- <h2>{{interval | async}}</h2> -->
 
-<h1>{{ examplePromise | async }}</h1>
+<h2>{{ signal() }}</h2>
