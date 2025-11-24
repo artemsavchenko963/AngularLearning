@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewChild, ViewContainerRef, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild, ViewContainerRef, signal, ChangeDetectorRef } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
 import { AppCustomDirective } from './directives/custom-directive';
 import { RouterOutlet } from '@angular/router';
@@ -13,14 +13,12 @@ import { SecondModule } from './modules/second/second-module';
 import { ComponentsModule } from "./shared/components/components-module";
 import { Red } from "./shared/components/red/red";
 import { Blue } from './shared/components/blue/blue';
-import { Green } from "./shared/components/green/green";
 import { filter, from, fromEvent, interval, map, Observable, of } from 'rxjs';
-import { prependListener } from 'node:process';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FirstModule, Green, CommonModule, AppCustomDirective, AsyncPipe, Child],
+  imports: [RouterOutlet, CommonModule, AppCustomDirective, AsyncPipe, Child],
   templateUrl: './app.html',
   styleUrl: './app.scss',
   // changeDetection: ChangeDetectionStrategy.Default,
@@ -30,7 +28,11 @@ import { prependListener } from 'node:process';
 export class App {
   title: string = "hello world!";
   interval = interval(1000);
-  signal = signal(0);
+  // signal = signal(0);
+
+  constructor(private cdr: ChangeDetectorRef) {
+    // this.cdr.detach();
+  }
 
   ngDoCheck() {
     console.log('ngDoCheck app-root');
@@ -40,9 +42,13 @@ export class App {
     console.log('ngAfterViewInit app-root');
 
     setTimeout(() => {
-      this.title = 'Hello Artem!';
-      this.signal.set(1);
+      // this.title = 'Hello Artem!';
+      // this.signal.set(1);
+      // this.cdr.detach();
     }, 3000);
+    setTimeout(() => {
+      // this.cdr.reattach();
+    }, 6000);
   }
 
   handleClick() {
