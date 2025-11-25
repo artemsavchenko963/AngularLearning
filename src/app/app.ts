@@ -26,33 +26,13 @@ import { filter, from, fromEvent, interval, map, Observable, of } from 'rxjs';
 })
 
 export class App {
-  title: string = "hello world!";
-  interval = interval(1000);
-  // signal = signal(0);
-
+  name: string = 'Миша';
+  
   constructor(private cdr: ChangeDetectorRef) {
-    // this.cdr.detach();
-  }
-
-  ngDoCheck() {
-    console.log('ngDoCheck app-root');
-  }
-
-  ngAfterViewInit() {
-    console.log('ngAfterViewInit app-root');
-
     setTimeout(() => {
-      // this.title = 'Hello Artem!';
-      // this.signal.set(1);
-      // this.cdr.detach();
+        this.name = 'Максим';
+        this.cdr.markForCheck();
     }, 3000);
-    setTimeout(() => {
-      // this.cdr.reattach();
-    }, 6000);
-  }
-
-  handleClick() {
-    console.log('click')
   }
 }
 
