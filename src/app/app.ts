@@ -22,13 +22,13 @@ import { filter, from, fromEvent, interval, map, Observable, of } from 'rxjs';
 })
 
 export class App {
-  name: string = 'Миша';
+  name: string = 'Мike';
 
   constructor(private cdr: ChangeDetectorRef) {
         setTimeout(() => {
-            this.name = 'Максим';
+            this.name = 'Igor';
             this.cdr.markForCheck();
-        }, 3000);
+        }, 3100);
     }
 }
 

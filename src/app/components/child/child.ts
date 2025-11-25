@@ -14,7 +14,7 @@ export class Child {
 
   constructor(@Attribute('name') name: string) {
     this.name = name;
-    console.log('name from attribute:', this.name);
+    console.log('attribute:', this.name);
   }
 }
 
