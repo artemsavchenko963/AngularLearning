@@ -15,6 +15,7 @@ import { Red } from "./shared/components/red/red";
 import { Blue } from './shared/components/blue/blue';
 import { delay, filter, from, fromEvent, interval, map, Observable, of } from 'rxjs';
 import { Data } from './services/data';
+import { Random } from './services/random';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,7 @@ import { Data } from './services/data';
   imports: [RouterOutlet, CommonModule, AppCustomDirective, AsyncPipe, Child],
   templateUrl: './app.html',
   styleUrl: './app.scss',
-  providers: [Data],
+  providers: [Data, Random],
 })
 
 // export class App {
@@ -40,8 +41,9 @@ import { Data } from './services/data';
 export class App {
  users$: Observable<any>;
 
- constructor(private dataService: Data) {
+ constructor(private dataService: Data, private randomService: Random) {
   this.users$ = this.dataService.getUsers();
+  console.log(this.randomService.getRandomNum());
  }
 }
 
