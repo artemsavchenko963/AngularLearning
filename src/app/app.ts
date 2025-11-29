@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewChild, ViewContainerRef, signal, ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild, ViewContainerRef, signal, ChangeDetectorRef, Inject } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
 import { AppCustomDirective } from './directives/custom-directive';
 import { RouterOutlet } from '@angular/router';
@@ -10,12 +10,12 @@ from
 import { Dynamic } from './component/dynamic/dynamic';
 import { FirstModule } from './modules/first/first-module';
 import { SecondModule } from './modules/second/second-module';
-import { ComponentsModule } from "./shared/components/components-module";
-import { Red } from "./shared/components/red/red";
-import { Blue } from './shared/components/blue/blue';
 import { delay, filter, from, fromEvent, interval, map, Observable, of } from 'rxjs';
 import { Data } from './services/data';
 import { Random } from './services/random';
+import { User } from './services/user';
+import { TOKEN } from './shared/tokens/token';
+
 
 @Component({
   selector: 'app-root',
@@ -23,27 +23,20 @@ import { Random } from './services/random';
   imports: [RouterOutlet, CommonModule, AppCustomDirective, AsyncPipe, Child],
   templateUrl: './app.html',
   styleUrl: './app.scss',
-  providers: [Data, Random],
+  providers: [
+    Data,
+    {provide: TOKEN, useValue: 'Some data'},
+  ],
 })
-
-// export class App {
-//   users: any;
-//   constructor(private dataService: Data) {
-//     console.log(this.dataService.getData());
-
-//     this.dataService.getUsers().subscribe((users) => {
-//       console.log(users);
-//       this.users = users;
-//     })
-//   }
-// }
 
 export class App {
  users$: Observable<any>;
 
- constructor(private dataService: Data, private randomService: Random) {
+ constructor(private dataService: Data, 
+  @Inject(TOKEN) private token: string
+ ) {
   this.users$ = this.dataService.getUsers();
-  console.log(this.randomService.getRandomNum());
+  console.log("this.token", this.token)
  }
 }
 
