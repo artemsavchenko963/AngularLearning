@@ -13,7 +13,8 @@ import { SecondModule } from './modules/second/second-module';
 import { ComponentsModule } from "./shared/components/components-module";
 import { Red } from "./shared/components/red/red";
 import { Blue } from './shared/components/blue/blue';
-import { filter, from, fromEvent, interval, map, Observable, of } from 'rxjs';
+import { delay, filter, from, fromEvent, interval, map, Observable, of } from 'rxjs';
+import { Data } from './services/data';
 
 @Component({
   selector: 'app-root',
@@ -21,19 +22,27 @@ import { filter, from, fromEvent, interval, map, Observable, of } from 'rxjs';
   imports: [RouterOutlet, CommonModule, AppCustomDirective, AsyncPipe, Child],
   templateUrl: './app.html',
   styleUrl: './app.scss',
-  // changeDetection: ChangeDetectionStrategy.Default,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [Data],
 })
 
+// export class App {
+//   users: any;
+//   constructor(private dataService: Data) {
+//     console.log(this.dataService.getData());
+
+//     this.dataService.getUsers().subscribe((users) => {
+//       console.log(users);
+//       this.users = users;
+//     })
+//   }
+// }
+
 export class App {
-  name: string = 'Миша';
-  
-  constructor(private cdr: ChangeDetectorRef) {
-    setTimeout(() => {
-        this.name = 'Максим';
-        this.cdr.markForCheck();
-    }, 3000);
-  }
+ users$: Observable<any>;
+
+ constructor(private dataService: Data) {
+  this.users$ = this.dataService.getUsers();
+ }
 }
 
 

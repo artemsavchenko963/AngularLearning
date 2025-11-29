@@ -13,10 +13,5 @@ import { NgContentExample } from '../../component/ng-content-example/ng-content-
 })
 
 export class Child {
-  name: string;
 
-  constructor(@Attribute('name') name: string) {
-    this.name = name;
-    console.log('name from attribute:', this.name);
-  }
 }
