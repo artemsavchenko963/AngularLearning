@@ -14,7 +14,7 @@ import { delay, filter, from, fromEvent, interval, map, Observable, of } from 'r
 import { Data } from './services/data';
 import { Random } from './services/random';
 import { User } from './services/user';
-import { TOKEN } from './shared/tokens/token';
+import { ADMIN_TOKEN, TOKEN, USER_TOKEN } from './shared/tokens/token';
 
 
 @Component({
@@ -25,18 +25,28 @@ import { TOKEN } from './shared/tokens/token';
   styleUrl: './app.scss',
   providers: [
     Data,
-    {provide: TOKEN, useValue: 'Some data'},
+    {
+     provide: USER_TOKEN,
+     useClass: Random,
+    },
+    {
+     provide: ADMIN_TOKEN,
+     useClass: Random,
+     multi: true,
+    },
   ],
 })
 
 export class App {
- users$: Observable<any>;
-
  constructor(private dataService: Data, 
-  @Inject(TOKEN) private token: string
+  @Inject(Data) private dataService2: Data,
+  @Inject(USER_TOKEN)
+   private userRandomService: Random,
+  @Inject(ADMIN_TOKEN)
+   private adminRandomService: Random,
  ) {
-  this.users$ = this.dataService.getUsers();
-  console.log("this.token", this.token)
+  console.log('User', this.userRandomService)
+  console.log('Admin', this.adminRandomService)
  }
 }
 
