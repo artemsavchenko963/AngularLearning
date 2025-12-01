@@ -5,16 +5,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class Data {
-  private _data: string[] = ['One', 'Two', 'Three'];
-
   constructor(private http: HttpClient) {
   }
 
     getData() {
-        return this._data;
+        return this.http.get(
+          'https://api.coindesk.com/v1/bpi/currentprice.json23423'
+        );
     }
-
-    getUsers() {
-      return this.http.get('https://jsonplaceholder.typicode.com/users')
-    } 
 }
