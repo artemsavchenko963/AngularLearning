@@ -22,4 +22,5 @@ import { TOKEN } from '../../shared/tokens/token';
 })
 
 export class Child {
+
 }

@@ -1,2 +1,41 @@
+<!-- <input
+  type="text"
+  name="username"
+  id="username"
+  [(ngModel)]="username"
+/>
 
-<app-child></app-child>
+<p>{{ username }}</p> -->
+
+
+<!-- #2
+<input 
+    type="text" 
+    name="username" id="username" 
+    ngModel 
+    #exampleInput="ngModel"
+    minlength="3" />
+
+<p>{{ exampleInput.value }}</p>
+<p>{{ exampleInput.dirty }}</p> -->
+
+
+
+<!-- #3 -->
+
+<form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)">
+    <label for="username">User name: </label><br>
+    <input 
+        type="text" 
+        id="username" 
+        name="username" 
+        ngModel
+        #exampleInput="ngModel"
+        minlength="3"
+    ><br>
+    <button type="submit">Submit !</button>
+    <!-- <button type="reset" (onReset)="exampleForm.onReset()">--Reset--</button> -->
+     <button type="button" (click)="exampleForm.resetForm({username: 'Change value'})">Reset</button>
+</form>
+
+<p>Complete: {{ exampleForm.submitted }}</p>

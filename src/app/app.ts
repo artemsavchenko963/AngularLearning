@@ -15,20 +15,48 @@ import { Data } from './services/data';
 import { Random } from './services/random';
 import { User } from './services/user';
 import { ADMIN_TOKEN, TOKEN, USER_TOKEN } from './shared/tokens/token';
+import { FormsModule, NgForm, NgModel } from '@angular/forms';
+import { clear } from 'node:console';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, AppCustomDirective, AsyncPipe, Child],
+  imports: [RouterOutlet, CommonModule, AppCustomDirective, AsyncPipe, Child, FormsModule],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
 
 export class App {
-  private dataService = inject(Data);
+  username: string = '';
+
+  @ViewChild('exampleForm') exampleForm!: NgForm;
+  @ViewChild('exampleInput') exampleInput!: NgModel;
+
+  private cdr = inject(ChangeDetectorRef);
+
   ngOnInit() {
-    this.dataService.getData().subscribe((data) => console.log(data));
+    setTimeout(() => {
+      this.username = this.username;
+      this.cdr.detectChanges();
+    }, 3000);
+  }
+
+  ngDoCheck() {
+    console.log('username:', this.username)
+  }
+
+  onSubmit(formValue: NgForm) {
+    console.log('formValue: ', formValue)
+  }
+
+  ngAfterViewInit() {
+        this.exampleForm.valueChanges?.subscribe((value) => {
+            console.log('exampleForm value: ', value);
+        });
+        this.exampleInput.valueChanges?.subscribe((value) => {
+            console.log('exampleInput value: ', value);
+        });
   }
 }
 

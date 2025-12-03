@@ -10,7 +10,7 @@ export class Data {
 
     getData() {
         return this.http.get(
-          'https://api.coindesk.com/v1/bpi/currentprice.json23423'
+          'https://api.coindesk.com/v1/bpi/currentprice.json'
         );
     }
 }

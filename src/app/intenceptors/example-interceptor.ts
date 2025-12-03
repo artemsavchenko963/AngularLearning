@@ -9,7 +9,7 @@ export const exampleInterceptor: HttpInterceptorFn = (req, next) => {
     }
   })
   return next(req).pipe(catchError((error) => {
-    alert('Not found ${error.status}')
+    // alert('Not found ${error.status}')
     return []
   }));
 };
