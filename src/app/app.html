@@ -1,41 +1,85 @@
-<!-- <input
-  type="text"
-  name="username"
-  id="username"
-  [(ngModel)]="username"
-/>
+<h1>Create User</h1>
+<form>
+    <div>
+        <label for="name">First Name<span>*</span>:</label>
+        <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Enter first name"
+        />
+    </div>
+    <div>
+        <label for="lastName">Last Name<span>*</span>:</label>
+        <input
+            type="text"
+            name="lastName"
+            id="lastName"
+            placeholder="Enter last name"
+        />
+    </div>
 
-<p>{{ username }}</p> -->
+    <div>
+        <label for="email">Email<span>*</span>:</label>
+        <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter email"
+        />
+    </div>
 
+    <div>
+        <label class="default">Gender:</label>
+        <div>
+            <label
+                ><input
+                    type="radio"
+                    name="gender"
+                    value="male"
+                />
+                Male</label
+            >
+            <label
+                ><input
+                    type="radio"
+                    name="gender"
+                    value="female"
+                />
+                Female</label
+            >
+        </div>
+    </div>
 
-<!-- #2
-<input 
-    type="text" 
-    name="username" id="username" 
-    ngModel 
-    #exampleInput="ngModel"
-    minlength="3" />
+    <div>
+        <label class="default">Country:</label>
+        <select name="country">
+            <option value="ru">Poland</option>
+            <option value="us">USA</option>
+            <option value="de">Germany</option>
+        </select>
+    </div>
 
-<p>{{ exampleInput.value }}</p>
-<p>{{ exampleInput.dirty }}</p> -->
+    <div>
+        <label for="comment">Comment:</label>
+        <textarea
+            name="comment"
+            id="comment"
+            placeholder="Enter comment"
+        ></textarea>
+    </div>
 
-
-
-<!-- #3 -->
-
-<form #exampleForm="ngForm" (ngSubmit)="onSubmit(exampleForm)">
-    <label for="username">User name: </label><br>
-    <input 
-        type="text" 
-        id="username" 
-        name="username" 
-        ngModel
-        #exampleInput="ngModel"
-        minlength="3"
-    ><br>
-    <button type="submit">Submit !</button>
-    <!-- <button type="reset" (onReset)="exampleForm.onReset()">--Reset--</button> -->
-     <button type="button" (click)="exampleForm.resetForm({username: 'Change value'})">Reset</button>
+    <div>
+        <label>
+            <input
+                type="checkbox"
+                name="agree"
+            />
+            I agree to the Terms of Use<span>*</span>
+        </label>
+    </div>
+    <div class="buttons">
+        <button type="submit">Create</button>
+        <button type="button">Reset</button>
+    </div>
 </form>
-
-<p>Complete: {{ exampleForm.submitted }}</p>
