@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:angular-myFirstProject": "node dist/angular-myFirstProject/server/server.mjs"
+    "serve:ssr:angular-myFirstProject": "node dist/angular-myFirstProject/server/server.mjs",
+    "server": "npx json-server server/db.json -p 3222"
   },
   "prettier": {
     "printWidth": 100,

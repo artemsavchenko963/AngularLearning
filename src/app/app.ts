@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component} from '@angular/core';
-import { FormsModule, NgModel } from '@angular/forms';
+import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { User } from './interface/user';
+import { UserService } from './services/users';
 
 
 @Component({
@@ -23,8 +24,16 @@ export class App {
   }
   user: User = structuredClone(this.initialUser);
 
+  constructor(private userService: UserService) {
+
+  }
+
   checkFieldStatus(field: NgModel) {
     return field.invalid && (field.dirty || field.touched);
+  }
+
+  onSubmit(userForm: NgForm) {
+    this.userService.createUser(userForm.value).subscribe();
   }
 }
 

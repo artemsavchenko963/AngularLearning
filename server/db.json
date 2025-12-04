@@ -1,0 +1,28 @@
+{
+    "user": [
+        {
+      "name": "John",
+            "age": 30,
+      "id": "a6fb"
+    },
+    {
+      "id": "8895",
+      "name": "gasvadfvd",
+      "lastName": "",
+      "email": "",
+      "gender": "male",
+      "country": "pl",
+      "comment": "",
+      "agree": true
+    },
+    {
+      "id": "8530",
+      "name": "Artem",
+      "lastName": "Savchenko ",
+      "email": "artemsavcenko963@gmail.com",
+      "gender": "male",
+      "comment": "I am angulap programer.",
+      "agree": true
+    }
+ ]
+} 

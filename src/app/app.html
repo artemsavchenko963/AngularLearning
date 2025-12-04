@@ -1,6 +1,6 @@
 <h1>Create User</h1>
 
-<form #userForm="ngForm">
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
     <div>
         <label for="name">First Name<span>*</span>:</label>
         <input
