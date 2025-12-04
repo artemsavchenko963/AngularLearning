@@ -1,5 +1,6 @@
 <h1>Create User</h1>
-<form>
+
+<form #userForm="ngForm">
     <div>
         <label for="name">First Name<span>*</span>:</label>
         <input
@@ -7,8 +8,15 @@
             name="name"
             id="name"
             placeholder="Enter first name"
+            [(ngModel)]="user.name"
+            required
+            #nameRef="ngModel"
         />
+        @if (checkFieldStatus(nameRef)) {
+            <p class="error">Name is necessarily !</p>
+        }
     </div>
+
     <div>
         <label for="lastName">Last Name<span>*</span>:</label>
         <input
@@ -16,7 +24,12 @@
             name="lastName"
             id="lastName"
             placeholder="Enter last name"
+            [(ngModel)]="user.lastName" required
+            #lastNameRef="ngModel"
         />
+        @if (checkFieldStatus(lastNameRef)) {
+            <p class="error">Last name is necessarily !</p>
+        }
     </div>
 
     <div>
@@ -26,7 +39,13 @@
             name="email"
             id="email"
             placeholder="Enter email"
+            [(ngModel)]="user.email" required
+            email
+            #emailRef="ngModel"
         />
+        @if (checkFieldStatus(emailRef)) {
+            <p class="error">Email is invalid !</p>
+        }
     </div>
 
     <div>
@@ -37,14 +56,17 @@
                     type="radio"
                     name="gender"
                     value="male"
+                    [(ngModel)]="user.gender" 
                 />
                 Male</label
             >
+
             <label
                 ><input
                     type="radio"
                     name="gender"
                     value="female"
+                    [(ngModel)]="user.gender"
                 />
                 Female</label
             >
@@ -53,7 +75,7 @@
 
     <div>
         <label class="default">Country:</label>
-        <select name="country">
+        <select name="country" [(ngModel)]="user.country" required>
             <option value="ru">Poland</option>
             <option value="us">USA</option>
             <option value="de">Germany</option>
@@ -66,6 +88,7 @@
             name="comment"
             id="comment"
             placeholder="Enter comment"
+            [(ngModel)]="user.comment"
         ></textarea>
     </div>
 
@@ -74,12 +97,17 @@
             <input
                 type="checkbox"
                 name="agree"
+                [(ngModel)]="user.agree" required
+                #agreeRef="ngModel"
             />
             I agree to the Terms of Use<span>*</span>
         </label>
+        @if (agreeRef.invalid) {
+            <p class="error">You must confirm your consent !</p>
+        }
     </div>
     <div class="buttons">
         <button type="submit">Create</button>
-        <button type="button">Reset</button>
+        <button type="button" (click)="userForm.resetForm(initialUser)">Reset</button>
     </div>
 </form>

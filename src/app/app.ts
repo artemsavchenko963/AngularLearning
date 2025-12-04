@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component} from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgModel } from '@angular/forms';
 import { User } from './interface/user';
 
 
@@ -12,7 +12,7 @@ import { User } from './interface/user';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class App {
-  user: User = {
+  initialUser: User = {
     name: '',
     lastName: '',
     email: '',
@@ -20,6 +20,11 @@ export class App {
     country: 'pl',
     comment: '',
     agree: true,
+  }
+  user: User = structuredClone(this.initialUser);
+
+  checkFieldStatus(field: NgModel) {
+    return field.invalid && (field.dirty || field.touched);
   }
 }
 
